@@ -29,6 +29,7 @@ Example:
     July 29, 2016 — 2.5% errors
 
 ## Good coding practices
+
 ### SQL style
 Each one of these questions can be answered with a single database query. Your code should get the database to do the heavy lifting by using joins, aggregations, and the where clause to extract just the information you need, doing minimal "post-processing" in the Python code itself.
 
@@ -37,3 +38,12 @@ In building this tool, you may find it useful to add views to the database. You 
 ### Python code quality
 Your code should be written with good Python style. The PEP8 style guide is an excellent standard to follow. You can do a quick check using the pep8 command-line tool.
 
+## How to run
+PostgreSQL has to be running.
+
+### Import the database
+
+```bash
+$ wget https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip
+$ psql -d news -f newsdata.sql
+```
