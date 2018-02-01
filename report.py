@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Here are the questions the reporting tool should answer.
 
     1. What are the most popular three articles of all time? Which articles
@@ -27,6 +28,8 @@
     Example:
 
         July 29, 2016 — 2.5% errors
+
+    Rubric: https://review.udacity.com/#!/rubrics/277/view
     """
 
 import psycopg2
