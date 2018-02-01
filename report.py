@@ -34,6 +34,27 @@
 
 import psycopg2
 
-db = psycopg2.connect("dbname=news")
 
-print("Success!")
+db = psycopg2.connect("dbname=news")
+cur = db.cursor()
+
+# 1. What are the three most popular articles of all time?
+query = """
+SELECT articles.title, count(log.path) AS views
+       FROM articles, log
+       WHERE (log.path like '%' || articles.slug AND log.status like '200%')
+       GROUP BY log.path, articles.title
+       ORDER BY views DESC
+       LIMIT 3
+"""
+
+cur.execute(query)
+articles = cur.fetchall()
+
+for article in articles:
+    print('"{}" – {} views'.format(article[0], article[1]))
+
+
+# 3. ...abs
+# query = 'select id, time::date, status from log'
+# select time::date, count(status) from log group by time::date limit 10;
